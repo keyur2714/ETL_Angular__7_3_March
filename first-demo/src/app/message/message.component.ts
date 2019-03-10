@@ -2,8 +2,13 @@ import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-message',
-  templateUrl: './message.component.html',
-  styleUrls: ['./message.component.css']
+  template: `
+  <p class="alert alert-primary">
+      Good Morning...!
+  </p>
+  <button class="btn btn-danger">Say Hello</button>
+  `,
+  styles: ['']
 })
 export class MessageComponent implements OnInit {
 
