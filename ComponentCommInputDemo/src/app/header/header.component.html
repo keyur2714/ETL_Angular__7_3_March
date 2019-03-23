@@ -1,0 +1,12 @@
+<nav class="navbar navbar-inverse navbar-fixed-bottom bg-{{bgColor}}">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <a class="navbar-brand" href="#">WebSiteName</a>
+      </div>
+      <ul class="nav navbar-nav">
+        <li *ngFor="let menu of menuItems;let i=index" [class.active]="i == 0">
+            <a [href]="menu.link">{{menu.label}}</a>  
+        </li>        
+      </ul>
+    </div>
+  </nav>
