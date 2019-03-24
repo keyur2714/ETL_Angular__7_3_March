@@ -1,4 +1,9 @@
 <div class="container">
+  <div class=row>
+    <div class="col">
+      <app-product-list></app-product-list>
+    </div>
+  </div>
   <div class="row">
     <div class="col-sm-12">
         <app-header [menuItems]="menuItems" [color]="'success'"></app-header>
@@ -23,6 +28,11 @@
     </div>
     <div class="col-sm-6"> 
       <app-message [message]="'Failed Message'" [message-type]="'danger'"></app-message>       
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-8">
+      <app-registration></app-registration>
     </div>
   </div>
 </div>
