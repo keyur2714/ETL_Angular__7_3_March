@@ -1,0 +1,12 @@
+<app-my-grid 
+  [dataList]="productList"
+  [headerNames]="headerNames"
+  [columnList]="columnList"
+  (getSelectedRow)="getRow($event)"
+  >
+</app-my-grid>
+<div class="row">
+  <div class="col">
+    Selected Product is : {{selectedProduct.desc}}
+  </div>
+</div>

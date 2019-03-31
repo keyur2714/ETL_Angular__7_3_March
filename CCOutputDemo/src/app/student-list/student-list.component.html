@@ -1,0 +1,27 @@
+<!-- <table class="table table-striped bg-dark text-white">
+  <thead>
+    <tr>
+      <th>Roll No</th>
+      <th>Name</th>
+      <th>Grade</th>
+    </tr>
+    <tr *ngFor="let student of studentList">
+      <td>{{student.rollNo}}</td>
+      <td>{{student.name}}</td>
+      <td>{{student.grade}}</td>
+    </tr>
+  </thead>
+</table> -->
+
+<app-my-grid 
+  [dataList]="studentList"
+  [headerNames]="headerList"
+  [columnList]="columnList"
+  (getSelectedRow)="getRow($event)"
+  >
+</app-my-grid>
+<div class="row">
+  <div class="col">
+    Selected Student is : {{selectedStudent.name}}
+  </div>
+</div>

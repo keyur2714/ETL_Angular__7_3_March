@@ -1,0 +1,27 @@
+<div class="container">
+  <div class="row">
+    <div class="col">
+        <h1>{{title}}</h1>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-6">
+        <app-message [message]="'Hi'" 
+        (getFormattedMsg)="getMessage($event)">
+        </app-message>        
+    </div>
+    <div class="col-sm-6">
+      {{formattedMSg}}
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      <app-student-list></app-student-list>
+    </div>
+  </div>
+  <div class="row">
+      <div class="col">
+        <app-product-list></app-product-list>
+      </div>
+  </div>
+</div>
