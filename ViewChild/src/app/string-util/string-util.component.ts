@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-string-util',
-  template: ``  
+  template: `<ng-content></ng-content>`  
 })
 export class StringUtilComponent implements OnInit {
 
