@@ -7,6 +7,7 @@
       [dataList]="countryList"
       [name]="'country'"
       [selectedValue]="countryList[0]"
+      (getSelectedItem)="getSelectedCountry($event)"
     >      
     </app-my-dropdown>
   </div>
@@ -20,7 +21,16 @@
         [dataList]="stateList"
         [name]="'state'"
         [selectedValue]="stateList[1]"
+        (getSelectedItem)="getSelectedState($event)"
       >      
       </app-my-dropdown>
+  </div>
+</div>
+<div class="row">
+  <div class="col-sm-6">
+        {{selectedCountry.desc}}
+  </div>
+  <div class="col-sm-6">
+    {{selectedState.desc}}
   </div>
 </div>
