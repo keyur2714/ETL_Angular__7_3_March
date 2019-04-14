@@ -2,11 +2,33 @@
   {{title}}
 </h1>
 
-<p appMyStyle #m2>
+<p appMyStyle [text]="'Hello Sachin...!'" #m2>
   Hello Radhe Krishna...!
 </p>
 
 <h2 appMyStyle [color]="'pink'">
   Good Afternoon...!
 </h2>
+
+<div *appMyIf="true"> 
+  Hello...!!!
+</div>
+
+<ul *appMyLoop=noOfElement>
+  <li>keyur</li>
+  <li>denish</li>
+  <li>vinit</li>
+</ul>
+
+<ng-template #ifBlock [appMyIf]="true">
+  keyur thakor
+</ng-template>
+
+<ng-template #elseBlock [appMyIf]="false">
+  denish patel
+</ng-template>
+
+<div appMyStyle [color]="'green'" [text]="'Good Afternoon....!'" >
+  
+</div>
 <button (click)="changeStyle()">Change Style</button>

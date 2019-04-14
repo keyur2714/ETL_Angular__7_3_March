@@ -16,6 +16,8 @@ export class AppComponent implements OnInit{
   @ViewChild("m2")
   m2 : ElementRef;
 
+  noOfElement : number= 7;
+
   @ViewChild(MyStyleDirective)
   appMyStyle : MyStyleDirective;
 
