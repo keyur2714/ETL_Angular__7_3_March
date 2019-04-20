@@ -1,0 +1,69 @@
+<form #f=ngForm (ngSubmit)="save(f)">
+  <div class="row form-group p-1">
+    <div class="col-sm-3">
+      <label>Category : </label>
+    </div>
+    <div class="col-sm-5">
+      <select name="category" class="form-control" [(ngModel)]="newItem.category" >
+        <option value="-1">-:Select Category:-</option>
+        <option *ngFor="let category of categoryList" [ngValue]="category">
+          {{category.desc}}
+        </option>
+      </select>
+    </div>
+  </div>
+  <div class="row form-group">
+    <div class="col-sm-3">
+      <label>Item Code : </label>
+    </div>
+    <div class="col-sm-5">
+      <input type="text" name=code class="form-control" [(ngModel)]="newItem.code" required #code=ngModel/>
+    </div>
+    <div class="col-sm-4" *ngIf="code.invalid && code.touched">
+      Code is Mandatory Field.
+    </div>
+  </div>
+  <div class="row form-group">
+    <div class="col-sm-3">
+      <label>Item Desc : </label>
+    </div>
+    <div class="col-sm-5">
+      <input type="text" name=desc class="form-control" [(ngModel)]="newItem.desc" required minlength="3" #desc=ngModel/>
+    </div>
+    <div class="col-sm-4" *ngIf="desc.invalid && desc.touched">
+      <div *ngIf="desc.errors['required']">
+          Desc is Mandatory Field.
+      </div>
+      <div *ngIf="desc.errors['minlength']">
+          Desc is minimum 3 Char.
+      </div>
+    </div>
+  </div>
+  <div class="row form-group">
+    <div class="col-sm-3">
+      <label>Item Price : </label>
+    </div>
+    <div class="col-sm-5">
+      <input type="text" name=price class="form-control" [(ngModel)]="newItem.price" required pattern="^[0-9]+$" #price=ngModel />
+    </div>
+    <div class="col-sm-4" *ngIf="price.invalid && price.touched">
+        <div *ngIf="price.errors['required']">
+            Price is Mandatory Field.
+        </div>
+        <div *ngIf="price.errors['pattern']">
+            Price only in Digits.
+        </div>
+      </div>
+  </div>
+  <div class="row form-group">
+    <div class="col-sm-5">
+      <button class="btn btn-info m-2" [disabled]="f.invalid">Save</button>
+      <button class="btn btn-default" type="button" (click)="reset()">Reset</button>
+    </div>  
+  </div>
+</form>
+<div class="row" *ngIf="isSubmited">
+  <div class="col">
+      {{newItem.category.desc}} || {{newItem.code}} | {{newItem.desc}} | {{newItem.price}} 
+  </div>
+</div>
