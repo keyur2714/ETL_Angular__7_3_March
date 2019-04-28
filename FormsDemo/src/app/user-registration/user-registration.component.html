@@ -1,0 +1,99 @@
+<form [formGroup]="userRegistration" (ngSubmit)="save()">
+  <div class="row form-group p-1">
+    <div class="col-sm-3">
+      <label>Username : </label>
+    </div>
+    <div class="col-sm-5">
+      <input type=text name=userName formControlName="userName" class="form-control" />
+    </div>
+    <div class="col-sm-3" *ngIf="userRegistration.get('userName').invalid && userRegistration.get('userName').touched">
+      Username is Mandatory Field.
+    </div>
+  </div> 
+  <div class="row form-group p-1">
+    <div class="col-sm-3">
+      <label>Password : </label>
+    </div>
+    <div class="col-sm-5">
+      <input type=password name=password formControlName="password" class="form-control" />
+    </div>
+    <div class="col-sm-3" *ngIf="userRegistration.get('password').invalid && userRegistration.get('password').touched &&  userRegistration.get('password').errors">
+      <span *ngIf="userRegistration.get('password').errors['required']">password is required field.</span>
+      <span *ngIf="userRegistration.get('password').errors['minlength']">password is min 6 Char.</span>
+    </div>
+  </div>  
+  <div class="row form-group p-1">
+    <div class="col-sm-3">
+      <label>Name : </label>
+    </div>
+    <div class="col-sm-5">
+      <input type=text name=name formControlName="name" class="form-control" />
+    </div>
+    <div class="col-sm-3" *ngIf="userRegistration.get('name').invalid && userRegistration.get('name').touched &&  userRegistration.get('name').errors">
+      <span *ngIf="userRegistration.get('name').errors['required']">Name is required field.</span>      
+    </div>
+  </div>   
+  <div class="row form-group p-1">
+    <div class="col-sm-3">
+      <label>Email : </label>
+    </div>
+    <div class="col-sm-5">
+      <input type=text name=email formControlName="email" class="form-control" />
+    </div>
+    <div class="col-sm-3" *ngIf="userRegistration.get('email').invalid && userRegistration.get('email').touched &&  userRegistration.get('email').errors">
+      <span *ngIf="userRegistration.get('email').errors['required']">Email is required field.</span>      
+      <span *ngIf="userRegistration.get('email').errors['email']">Email is Invalid.</span>      
+    </div>
+  </div>
+  <div class="row form-group p-1">
+    <div class="col-sm-3">
+      <label>Mobile No : </label>
+    </div>
+    <div class="col-sm-5">
+      <input type=text name=mobileNo formControlName="mobileNo" class="form-control" />
+    </div>
+    <div class="col-sm-3" *ngIf="userRegistration.get('email').invalid && userRegistration.get('mobileNo').touched &&  userRegistration.get('mobileNo').errors">
+      <span *ngIf="userRegistration.get('mobileNo').errors['required']">Mobile No is required field.</span>      
+      <span *ngIf="userRegistration.get('mobileNo').errors['minlength']">Mobile No is min 10 Char.</span>      
+      <span *ngIf="userRegistration.get('mobileNo').errors['pattern']">Mobile No only in Digits.</span>      
+    </div>
+  </div>   
+  <div class="row form-group p-1">
+      <div class="col-sm-3">
+        <label>Role : </label>
+      </div>
+      <div class="col-sm-5">
+        <input type=radio name=userRole formControlName="userRole" value="admin" />Admin
+        <input type=radio name=userRole formControlName="userRole" value="user" />User
+      </div>
+      <div class="col-sm-3" *ngIf="userRegistration.get('email').invalid && userRegistration.get('mobileNo').touched &&  userRegistration.get('mobileNo').errors">
+        <span *ngIf="userRegistration.get('mobileNo').errors['required']">Mobile No is required field.</span>      
+        <span *ngIf="userRegistration.get('mobileNo').errors['minlength']">Mobile No is min 10 Char.</span>      
+        <span *ngIf="userRegistration.get('mobileNo').errors['pattern']">Mobile No only in Digits.</span>      
+      </div>
+  </div>   
+  <div formArrayName="hobbies">
+      <div class="row form-group p-1" *ngFor="let hobbyControl of userRegistration.get('hobbies').controls;let i=index;">
+        <div class="col-sm-3">
+          <label>Hobby-{{i+1}}: </label>
+        </div>
+        <div class="col-sm-5">
+          <input type=text name=hobby{{i}} [formControlName]="i" class="form-control" />
+        </div>
+        <div class="col-sm-3">
+          <button (click)="addNewHobby()" class="btn btn-info">Add More</button>
+        </div>
+      </div>   
+  </div>
+
+  <div class="row form-group">
+    <div class="col-sm-5">
+      <button class="btn btn-info m-2" [disabled]="userRegistration.invalid">Save</button>
+      <button class="btn btn-default" type="button" (click)="reset()">Reset</button>
+    </div>  
+  </div>
+</form>
+<div class="row" *ngIf="isSubmited">
+  <div class="col">      
+  </div>
+</div>
