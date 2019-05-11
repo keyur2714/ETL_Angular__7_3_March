@@ -65,12 +65,7 @@
       <div class="col-sm-5">
         <input type=radio name=userRole formControlName="userRole" value="admin" />Admin
         <input type=radio name=userRole formControlName="userRole" value="user" />User
-      </div>
-      <div class="col-sm-3" *ngIf="userRegistration.get('email').invalid && userRegistration.get('mobileNo').touched &&  userRegistration.get('mobileNo').errors">
-        <span *ngIf="userRegistration.get('mobileNo').errors['required']">Mobile No is required field.</span>      
-        <span *ngIf="userRegistration.get('mobileNo').errors['minlength']">Mobile No is min 10 Char.</span>      
-        <span *ngIf="userRegistration.get('mobileNo').errors['pattern']">Mobile No only in Digits.</span>      
-      </div>
+      </div>      
   </div>   
   <div formArrayName="hobbies">
       <div class="row form-group p-1" *ngFor="let hobbyControl of userRegistration.get('hobbies').controls;let i=index;">
