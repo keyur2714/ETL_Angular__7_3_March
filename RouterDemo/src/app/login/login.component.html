@@ -1,3 +1,31 @@
-<p>
-  login works!
-</p>
+<form #f=ngForm (ngSubmit)="login(f)">
+  <div class="row form-group">
+    <div class="col"></div>
+  </div>  
+  <div class="row form-group" *ngIf="errorMessage !== ''">
+      <div class="col-sm-8 alert alert-danger">
+        {{errorMessage}}
+      </div>
+  </div>
+  <div class="form-group row">
+    <div class="col-sm-2">
+        <label for="userName">Username</label>        
+    </div>
+    <div class="col-sm-6">
+        <input type="text" class="form-control" name="userName" ngModel aria-describedby="emailHelp" placeholder="Enter username">    
+    </div>    
+  </div>
+  <div class="form-group row">
+    <div class="col-sm-2">
+        <label for="password">Password</label>
+    </div>
+    <div class="col-sm-6">
+        <input type="password" class="form-control" name="password" ngModel placeholder="Password">
+    </div>    
+  </div>
+  <div class="row form-group">
+    <div class="col">
+      <button type="submit" class="btn btn-primary">Login</button>
+    </div>
+  </div>  
+</form>

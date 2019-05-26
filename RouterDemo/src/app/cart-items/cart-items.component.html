@@ -1,3 +1,27 @@
-<p>
-  cart-items works!
-</p>
+<table class="table table-bordered">
+  <tr>
+    <th>SrNo</th>
+    <th>Name</th>
+    <th>Quantity</th>
+    <th>Price</th>
+  </tr>
+  <tr *ngFor="let items of cartItems;let idx=index">
+    <td>{{items.id}}</td>
+    <td>{{items.name}}</td>
+    <td>
+      <select #qty name=qty (change)="changePrice(qty.value,items.price,idx)">
+        <option value=1>1</option>
+        <option value=2>2</option>
+        <option value=3>3</option>
+        <option value=4>4</option>
+        <option value=5>5</option>
+      </select>
+    </td>
+    <td>{{items.totalPrice}}</td>    
+  </tr>
+</table>
+<table class="table" align="center">
+  <tr align="center">
+    <td><button class="btn-lg btn-info" (click)="checkOut()">Checkout</button></td>
+  </tr>
+</table>
