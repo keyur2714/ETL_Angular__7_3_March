@@ -1,0 +1,15 @@
+<h1>{{title}}</h1>
+<p>{{ name | uppercase | lowercase | uppercase}}</p>
+<h2>{{ name | lowercase }}</h2>
+<p>{{today | date : 'MM/dd/yyyy hh:mm:ss a'}}</p>
+<p>{{numObservable | async}}</p>
+
+  <pre>{{department | json}}</pre>
+
+<h3>{{name | welcome}}</h3>  
+
+<p>{{'denish' | welcome}}</p>
+
+<h2>{{mobileNo | mask : '@' : 5}}</h2>
+
+<p [class]="grade | status | lowercase">Your Grade is : {{grade}}</p>
